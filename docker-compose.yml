@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14.4-alpine
+    restart: always
+    shm_size: 128mb
+    hostname: resume
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    env_file:
+      - .env
+    volumes:
+      - resume-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+#    command: alembic upgrade head
+    restart: always
+    hostname: resume-backend
+    depends_on:
+      - db
+    ports:
+      - '8001:8001'
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/${DB_NAME}
+
+#  alembic:
+#    build: .
+#    command: alembic upgrade head
+#    volumes:
+#      - .:/app
+#    env_file:
+#      - .env
+#    environment:
+#      DATABASE_URL: ${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/${DB_NAME}
+#    depends_on:
+#      - db
+
+volumes:
+  resume-data:
