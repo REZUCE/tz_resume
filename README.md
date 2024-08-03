@@ -47,7 +47,7 @@ poetry install
 
 ```
 # Общие настройки для базы данных
-DB_HOST=localhost
+DB_HOST=db
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=postgres
@@ -79,7 +79,7 @@ ___
 
 ```
 # Общие настройки для базы данных
-DB_HOST=localhost
+DB_HOST=db
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=postgres
