@@ -84,8 +84,25 @@ DB_NAME=postgres
 DB_DRIVER=postgresql+asyncpg
 ```
 
-### 2) Запуск с помощью команды `docker-compose up -d`
-
+### 2) Запустить контейнеры.
+```
+docker-compose up -d
+```
+### 3) Провалиться в контейнер приложения и выполнить миграции.
+```
+docker exec -it <container> bash
+```
+```
+poetry run alembic upgrade head
+```
+```
+exit
+```
+___
+### Тестировать можно здесь.
+```
+http://0.0.0.0:8001/docs
+```
 ___
 
 ## by Rezuce
