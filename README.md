@@ -4,6 +4,9 @@
 
 ___
 
+<img width="1376" alt="image" src="https://github.com/user-attachments/assets/fe2a3409-724d-44ef-9a20-e26e7c538960">
+
+
 ## Как развернуть локально?
 
 ### 1) Нужно клонировать репозиторий и перейти в него.
