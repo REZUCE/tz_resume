@@ -8,6 +8,7 @@
 Также можно закрыть docs, при определенном ENVIRONMENT:
 ![image](https://github.com/user-attachments/assets/0ecc4a1f-d8c5-4d8b-99d4-e67d8e6c1f84)
 - [] Изменить название модели во множественное число.
+- [] Модель забыл добавить.
 - [] Проверить status_code и response_model(схема pydantic).
 - [] Добавит Makefile (вкусовщина)
 - [] Добавить стандартный линтер и форматер
